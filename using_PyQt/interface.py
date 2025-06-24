@@ -9,10 +9,7 @@ class TicTacToeWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle("Tic Tac Toe Game")
         self.setGeometry(100, 100, 600, 400)
-        
         self.game = TicTacToeGame()
-
-        # Configurar la interfaz gráfica
         self._create_menu()
         self._create_game_board()
 
