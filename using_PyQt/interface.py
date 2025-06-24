@@ -17,41 +17,30 @@ class TicTacToeWindow(QMainWindow):
         self._create_game_board()
 
     def _create_menu(self):
-        # Crear barra de menú
         menubar = self.menuBar()
-        
-        # Crear menú de archivo
         file_menu = menubar.addMenu("File")
 
-        # Crear acción de nuevo juego
         new_game_action = QAction("New Game", self)
         new_game_action.triggered.connect(self.new_game)
         file_menu.addAction(new_game_action)
 
-        # Crear acción de salir
         exit_action = QAction("Exit", self)
         exit_action.triggered.connect(self.close)
         file_menu.addAction(exit_action)
 
-        # Crear menú de ayuda
         help_menu = menubar.addMenu("Help")
-        
-        # Crear acción de ayuda
         help_action = QAction("Help", self)
         help_action.triggered.connect(self.show_help)
         help_menu.addAction(help_action)
 
     def _create_game_board(self):
-        # Crear el layout principal
         self.central_widget = QWidget(self)
         self.setCentralWidget(self.central_widget)
         self.main_layout = QVBoxLayout(self.central_widget)
 
-        # Crear el layout del tablero de juego
         self.board_layout = QGridLayout()
         self.main_layout.addLayout(self.board_layout)
 
-        # Crear botones para el tablero
         self.buttons = [[QPushButton("") for _ in range(self.game.dim)] for _ in range(self.game.dim)]
         for row in range(self.game.dim):
             for col in range(self.game.dim):
