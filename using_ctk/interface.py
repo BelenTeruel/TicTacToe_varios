@@ -1,15 +1,12 @@
 import customtkinter as ctk
 
 def setup_ui(game):
-    # Configuración de tema y colores
     ctk.set_appearance_mode("dark")  # Puede ser "light" o "dark"
     ctk.set_default_color_theme("blue")  # Temas disponibles: "blue", "green", "dark-blue"
 
-    # Game Frame
     game.game_frame = ctk.CTkFrame(game.root)
     game.game_frame.pack(pady=20)
 
-    # Game Controls
     game.controls_frame = ctk.CTkFrame(game.game_frame, fg_color="Purple1")
     game.controls_frame.pack(side='top', pady=10)
 
@@ -46,10 +43,10 @@ def create_board_buttons(game):
     for row in range(game.dim):
         for col in range(game.dim):
             button = ctk.CTkButton(game.board_frame, text="", width=100, height=50, fg_color="white",
-                                   font=("Helvetica", 10),  # Font size increased to keep size consistent
+                                   font=("Helvetica", 10),  
                                    corner_radius=10,
                                    command=lambda row=row, col=col: game.player_input(row, col))
-            button.grid(row=row, column=col, padx=5, pady=5)  # Added padding for visual consistency
+            button.grid(row=row, column=col, padx=5, pady=5)
             game.buttons[row][col] = button
 
 def toggle_menu(game):
@@ -84,6 +81,5 @@ def show_help(game):
     help_label = ctk.CTkLabel(help_window, text=help_message, font=custom_font, justify="center", wraplength=450)
     help_label.pack(pady=20, padx=10)
 
-    # Agregar un botón para cerrar la ventana de ayuda
     close_button = ctk.CTkButton(help_window, text="Close", command=help_window.destroy)
     close_button.pack(pady=10)
