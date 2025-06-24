@@ -11,7 +11,7 @@ class TicTacToe:
         self.buttons = [[None for _ in range(self.dim)] for _ in range(self.dim)]
         self.players = ["X", "O"]
         self.current_player = self.players[0]
-        ui.setup_ui(self)  # Configuración de la interfaz gráfica
+        ui.setup_ui(self)
 
     def new_game(self):
         self.current_player = self.players[0]
@@ -35,10 +35,8 @@ class TicTacToe:
             else:
                 self.current_player = fn.update_player(self)
 
-    # Define el método help
     def help(self):
         ui.show_help(self)
 
-    # Define el método toggle_menu
     def toggle_menu(self):
         ui.toggle_menu(self)
